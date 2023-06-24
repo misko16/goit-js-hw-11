@@ -1,0 +1,91 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #ddd;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+}
+
+.search-form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+  padding: 10px;
+  width: 300px;
+  font-size: 16px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+}
+
+.search-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  justify-items: center;
+}
+
+.photo-card {
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 5px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.photo-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.info {
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.info-item {
+  margin: 5px 0;
+  color: var(--primary-color);
+}
+
+.load-more {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.sl-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  max-height: 80vh; /* Задайте максимальну висоту для зображення */
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.9); /* Фоновий колір */
+}

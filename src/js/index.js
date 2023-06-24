@@ -8,11 +8,19 @@ const BASE_URL = `https://pixabay.com/api/?key=${API_KEY}`;
 const searchForm = document.getElementById('search-form');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 
 let currentPage = 1;
-const perPage = 20;
+const perPage = 40;
 
-searchForm.addEventListener('submit', async (e) => {
+searchForm.addEventListener('submit', handleSearchSubmit);
+
+loadMoreBtn.addEventListener('click', handleLoadMore);
+
+async function handleSearchSubmit(e) {
   e.preventDefault();
   const searchQuery = e.target.elements.searchQuery.value.trim();
 
@@ -23,12 +31,12 @@ searchForm.addEventListener('submit', async (e) => {
   clearGallery();
   currentPage = 1;
   await fetchImages(searchQuery);
-});
+}
 
-loadMoreBtn.addEventListener('click', async () => {
+async function handleLoadMore() {
   const searchQuery = searchForm.elements.searchQuery.value.trim();
   await fetchImages(searchQuery);
-});
+}
 
 async function fetchImages(searchQuery) {
   try {
@@ -52,7 +60,6 @@ async function fetchImages(searchQuery) {
 
       Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
 
-      const lightbox = new SimpleLightbox('.gallery a');
       lightbox.refresh();
     }
   } catch (error) {
